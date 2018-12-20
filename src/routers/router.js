@@ -1,55 +1,27 @@
-import User from '../components/User';
-import UserList from '../components/User/UserList';
-import UserAdd from '../components/User/UserAdd';
-import UserEdit from '../components/User/UserEdit';
-import Home from "../components/Home";
+import Nav from "../components/Nav";
+import nav_routes from "./routes_nav";
+import routes_user from "./routes_user";
+
 
 let routes = [
     {
-        name: "导航页面1 用户",
-        path: "/user",
-        component: User,
+        name: "用户",
+        path: "/user/",
+        component: Nav,
         exact: false,
-        routes: [/*嵌套路由*/
-            {
-                name: "用户列表",
-                icon: "bars",
-                path: "/user/",
-                component: UserList,
-                exact: false
-            },
-            {
-                name: "添加用户",
-                icon: "copy",
-                path: "/user/add",
-                component: UserAdd,
-                exact: false
-            },
-            {
-                name: "编辑用户",
-                icon: "download",
-                path: "/user/edit",
-                component: UserEdit,
-                exact: false
-            }
-        ]
+        routes: routes_user
     },
     {
-        name: "导航页面2",
-        path: "/home",
-        component: Home,
-        exact: false
+        name: "Nav",
+        path: "/nav/",
+        component: Nav,
+        exact: false,
+        routes: nav_routes
     },
     {
-        name: "导航页面3",
-        path: "/home",
-        component: Home,
-        exact: false
-    },
-    {
-        name: "导航页面4",
-        path: "/home",
-        component: Home,
+        name: "Nav_2",
+        path: "/nav2/",
+        component: Nav,
         exact: false
     }
 ];

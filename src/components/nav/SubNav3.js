@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-class Home extends Component {
+
+class SubNav3 extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            msg:'我是一个home组件'
+            msg:'Nav组件SubNav3'
          };
-    }    
+    }
     render() {
         return (
-            <div className="home">
-                Home组件
+            <div className="user">
+                Nav组件SubNav3
             </div>
         );
     }
 }
 
-export default Home;
+export default SubNav3;
