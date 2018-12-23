@@ -1,16 +1,41 @@
 @charset "UTF-8";
 @import '~antd/dist/antd.css';
 
-.app .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, .2);
-    margin: 16px 28px 16px 0;
+html,body,#root{
+    width: 100%;
+    height: 100%;
+}
+
+.app-header {
+    height: 50px;
+}
+
+.app-header .header-item{
+    height: 50px;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
     float: left;
 }
 
-.app .header-item{
-    padding-left: 16px;
-    padding-right: 16px;
+.app-header .logo {
+    width: 120px;
+    height: 30px;
+    margin: 10px 10px 10px -20px;
+    background: rgba(255, 255, 255, .2);
     float: left;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+    left: 0px;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    padding: 0 20px !important;
+}
+
+.ant-layout-footer {
+    background: #f0f2f5;
+    padding: 20px 50px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
 }

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link, withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {
-    Layout, Menu, Dropdown, Icon, Button
+    Layout, Menu, Dropdown, Icon
 } from 'antd';
 
-import routes from '../routers/router.js';
+import routes from '../../routers/router.js';
 
 const {Header} = Layout;
 
@@ -28,8 +28,7 @@ class AppHeader extends Component {
                                             return <Menu.Item key={v.path}><Link to={v.path}>{v.name}</Link></Menu.Item>
                                         })}
                                 </Menu.SubMenu>
-                            )
-                        }
+                            )}
                         return <Menu.Item key={v.path}><Link to={v.path}>{v.name}</Link></Menu.Item>
                     })}
             </Menu>)
@@ -44,25 +43,21 @@ class AppHeader extends Component {
 
     render() {
         return (
-            <Header className="header" style={{height: "8vh"}} >
+            <Header className="app-header">
                 <div className="logo"/>
                 <Dropdown overlay={this.state.dropMenu}
-                          trigger={['click']}>
-                    <a className="header-item" href="#">
-                        控制台 <Icon type="down"/>
-                    </a>
+                          trigger={['click']}
+                          className='header-item'>
+                    <a> 控制台 <Icon type="down"/></a>
                 </Dropdown>
 
-                <Menu theme="dark"
+                <Menu className="menu"
+                      theme="dark"
                       mode="horizontal"
-                      className="header-item"
-                      selectedKeys={[this.getParentPath(this.props.history.location.pathname)]}
-                      style={{lineHeight: '64px'}}>
-                    {
-                        routes.map((v) => {
-                            return <Menu.Item key={v.path}><Link to={v.path}>{v.name}</Link></Menu.Item>
-                        })
-                    }
+                      selectedKeys={[this.getParentPath(this.props.history.location.pathname)]}>
+                    {routes.map((v) => {
+                            return <Menu.Item className="header-item" key={v.path}><Link to={v.path}>{v.name}</Link></Menu.Item>
+                        })}
                 </Menu>
 
             </Header>

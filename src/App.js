@@ -1,39 +1,20 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
-import {
-    Layout, Menu, Dropdown, Icon, Button
-} from 'antd';
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+
 
 import './assets/css/app.css';
-import routes from './routers/router.js';
-import AppHeader from "./components/AppHeader";
+import AppMain from "./components/common/AppMain";
+import AppLogin from "./components/common/AppLogin";
 
 class App extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
             <Router>
-                <Layout className="app">
-                    <AppHeader/>
-                    <Layout>
-                        {
-                            routes.map((route, key) => {
-                                return <Route key={key}
-                                              exact={route.exact}
-                                              path={route.path}
-                                              render={props => (
-                                                  <route.component {...props} routes={route.routes}/>
-                                              )}
-                                />
-                            })
-                        }
-                    </Layout>
-                </Layout>
-
+                <Switch>
+                    <Route exact path='/login' component={AppLogin}/>
+                    <Route component={AppMain}/>
+                </Switch>
             </Router>
         );
     }
