@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import {Layout} from 'antd';
 
 import routes from '../../routers/router.js';
@@ -16,17 +16,19 @@ class AppContent extends Component {
     render() {
         return (
             <Layout>
-                {routes.map((route, key) => {
-                        return <Route key={key}
-                                      path={route.path}
-                                      render={props => (
-                                          <ContentPage {...props}
-                                                       path={route.path}
-                                                       component={route.component}
-                                                       routes={route.routes}/>
-                                      )} />
-                    })}
-                <AuthRoute component={Page404}/>
+                <Switch>
+                    {routes.map((route, key) => {
+                            return <Route key={key}
+                                          path={route.path}
+                                          render={props => (
+                                              <ContentPage {...props}
+                                                           path={route.path}
+                                                           component={route.component}
+                                                           routes={route.routes}/>
+                                          )} />
+                        })}
+                    <AuthRoute component={Page404}/>
+                </Switch>
             </Layout>
         );
     }

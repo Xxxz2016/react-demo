@@ -67,13 +67,13 @@ class ContentPage extends Component {
                         background: '#fff', padding: 24, margin: 0, minHeight: "520px",
                     }}>
                         <Switch>
-                        {this.props.routes != null ?
-                            this.props.routes.map((route, key) => {
-                                return <AuthRoute key={key} exact path={route.path} component={route.component}/>
-                            })
-                            : <AuthRoute exact path={this.props.path} component={this.props.component}/>
-                        }
-                        <AuthRoute component={Page404}/>
+                            {this.props.routes != null ?
+                                this.props.routes.map((route, key) => {
+                                    return <AuthRoute key={key} exact path={route.path} component={route.component}/>
+                                })
+                                : <AuthRoute exact path={this.props.path} component={this.props.component}/>
+                            }
+                            <AuthRoute component={Page404}/>
                         </Switch>
                     </Content>
                     <Footer style={{
